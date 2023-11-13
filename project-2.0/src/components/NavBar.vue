@@ -3,7 +3,7 @@
     <button @click="goBack" class="goBackBttns" :class="{ hide: pageCounter.pageNumber === 1 }">
       Go Back
     </button>
-    <button @click="nextPage" class="nextPageBttns" :class="{ hide: pageCounter.pageNumber === 4 }">
+    <button @click="$emit('nextPage')" class="nextPageBttns" :class="{ hide: pageCounter.pageNumber === 4 }">
       Next Page
     </button>
     <!-- <div>{{ pageCounter.pageCount }}</div> -->
