@@ -4,17 +4,23 @@
     <h1>Page Three</h1>
     <h2>Pick add-ons</h2>
     <p>Add-ons help enchance your gaming gaming experience</p>
-    <div>Checked add ons: {{ addOns }}</div>
+    <!-- <div>Checked add ons: {{ addOns}}</div> -->
 
-    <input type="checkbox" id="OS" value="Online serive" v-model="addOns">
+    <!-- <div v-for="(addOn, index) in Object.keys(userInfoStore.addOns)" :key="index">
+      <input type="checkbox" id="index" :value="addOn" :v-model="addOn">
+      <label :for="addOn">{{ addOn }}</label>
+    </div> -->
+
+
+    <input type="checkbox" id="OS" value="onlineService" v-model="onlineService">
     <label for="onlineService">Online service</label>
 
-    <input type="checkbox" id="LR" value="Larger storage" v-model="addOns">
+    <input type="checkbox" id="LR" value="largerStorage" v-model="largerStorage">
     <label for="largerStorage">Larger storage</label>
 
-    <input type="checkbox" id="CP" value="Customisable Profile" v-model="addOns">
+    <input type="checkbox" id="CP" value="customizableProfile" v-model="customizableProfile">
     <label for="customizableProfile">Customizable Profile</label>
-    <NavBar></NavBar>
+    <NavBar @handle-next-page="saveAddOn"></NavBar>
     <SideBar></SideBar>
 
   </div>
@@ -32,7 +38,21 @@ const pageCounter = usePageNumStore()
 const router = useRouter()
 const userInfoStore = useUserInfoStore();
 
-const addOns = ref([])
+const createComputedProperty = propertyName => computed({
+  get: () => userInfoStore.addOns[propertyName].checked,
+  set: newValue => userInfoStore.saveUserAddOn(newValue, propertyName)
+
+});
+
+const onlineService = createComputedProperty('onlineService');
+const largerStorage = createComputedProperty('largerStorage');
+const customizableProfile = createComputedProperty('customizableProfile');
+
+const saveAddOn = (pageNumber) => {
+  pageCounter.incrementPage()
+  router.push({ path: `/page/${pageCounter.pageNumber}` })
+// userInfoStore.saveUserAddOn(selectedOption.value)
+}
 
 </script>
   
