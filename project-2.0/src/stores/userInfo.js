@@ -12,15 +12,18 @@ export const useUserInfoStore = defineStore('UserInfo', {
     planOptions : {
       arcade: {
         price: 90,
-        selected: false
+        selected: false,
+        name: 'Arcade'
       },
       advanced: {
         price: 120,
-        selected: false
+        selected: false,
+        name: 'Advanced'
       },
       pro: {
         price: 150,
-        selected: false
+        selected: false,
+        name: 'Pro'
       },
     },
     addOns : {
@@ -28,19 +31,22 @@ export const useUserInfoStore = defineStore('UserInfo', {
         checked:false,
         description:"Access to multiplayer games", 
         price: 1,
-        id:'OS'
+        id:'OS',
+        name: 'Online Service'
       },
       largerStorage:{
         checked:false,
         description:"Extra 1TB of cloud save",
         price: 2,
-        id:'LS'
+        id:'LS',
+        name: 'Larger Storage'
       },
       customizableProfile:{
         checked:false,
         description:"Custom theme on your profile",
         price: 2,
-        id:'CS'
+        id:'CS',
+        name: 'Customizable Profile'
       },
     }
   }),
