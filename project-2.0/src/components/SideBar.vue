@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div v-for="(page, index) in pageIndicator" :key="index" :class="{ active: page.number === pageInd }">
+  <div class="parent">
+    <div v-for="(page, index) in pageIndicator" :key="index" :class="{ active: page.number === pageInd }" class="pageNum">
       {{ page.number }}
     </div>
   </div>
@@ -48,6 +48,18 @@ export default {
 </script>
 
 <style scoped>
+.parent{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.pageNum{
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  /* display:flex; */
+  text-align: center;
+  border: solid 1px white;
+}
 .active {
   background-color: #007bff;
   color: white;
