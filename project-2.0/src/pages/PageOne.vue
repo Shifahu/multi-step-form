@@ -1,20 +1,22 @@
 
 <template>
   <div class="parent">
-    <div class="sidebars">
+    <div class="parent_sidebars">
       <SideBar></SideBar>
     </div>
-    <div class="card">
-      <h1 class="header">Personal info</h1>
-      <p class="instruction">Please provide your name, email address, and phone number</p>
-      <form class="form_section">
-        <label for="name">Name</label>
-        <input v-model="userInfoStore.name" type="input" id="name" name="name" /><br />
-        <label for="email">Email</label>
-        <input v-model="userInfoStore.email" type="email" id="email" name="email" /><br />
-        <label for="number">Phone Number</label>
-        <input v-model="userInfoStore.number" type="tel" id="number" name="number" /><br>
-      </form>
+    <div class="card_container">
+      <div class="card">
+        <h1 class="header">Personal info</h1>
+        <p class="instruction">Please provide your name, email address, and phone number</p>
+        <form class="form_section">
+          <label for="name">Name</label>
+          <input v-model="userInfoStore.name" type="input" id="name" name="name" /><br />
+          <label for="email">Email</label>
+          <input v-model="userInfoStore.email" type="email" id="email" name="email" /><br />
+          <label for="number">Phone Number</label>
+          <input v-model="userInfoStore.number" type="tel" id="number" name="number" /><br>
+        </form>
+      </div>
     </div>
     <div class="navbar">
       <NavBar @handle-next-page="saveInfo"></NavBar>
@@ -95,6 +97,12 @@ const saveInfo =  (pageNumber) => {
 
 @import url(//fonts.googleapis.com/css?family=Ubuntu);
 
+.card_container{
+  display: flex;
+    justify-content: center;
+    height: 89%;
+}
+
 .header{
   font-weight: 700;
   color: hsl(213, 96%, 18%);
@@ -113,9 +121,12 @@ label{
 }
 
 
-.sidebars{
-  display: grid;
-  width: 100%
+.parent_sidebars{
+  display: flex;
+  width: 80%;
+  height: 15%;
+  align-items: center;
+  justify-content: center;
 }
 .parent{
   height:100%;
@@ -135,6 +146,7 @@ label{
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background: white;
   color:black;
+  height: 70%;
 }
 .form_section{
   display: grid;
@@ -145,7 +157,10 @@ label{
   // margin-top: auto; 
   background: white;
   width: 100%;
-  height: 90px
+  height: 90px;
+  display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
 }
 
 </style>

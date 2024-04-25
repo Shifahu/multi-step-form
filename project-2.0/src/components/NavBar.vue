@@ -4,7 +4,7 @@
       Go Back
     </button>
     <button @click="$emit('handleNextPage', pageCounter.pageNumber)" class="nextPageBttns" :class="{ hide: pageCounter.pageNumber === 4 }">
-      Next Page
+      Next Step
     </button>
     <!-- <div>{{ pageCounter.pageCount }}</div> -->
   </div>
@@ -40,5 +40,19 @@ defineProps()
 <style scoped>
 .hide {
   visibility: hidden;
+}
+
+.navBar{
+  margin-right: 10px;
+}
+
+.nextPageBttns{
+  height: 45px;
+    width: 100px;
+    background: hsl(213, 96%, 18%);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Ubuntu';
 }
 </style>
